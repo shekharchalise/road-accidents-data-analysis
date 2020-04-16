@@ -22,3 +22,10 @@ This project is a basic data analysis and prediction for our Master's Big Data T
 
 ## Dataset
 - Download Dataset [here](https://www.kaggle.com/sobhanmoosavi/us-accidents/download/p44lgYpA1uUpTDM3fEsI%2Fversions%2F7rBcGxF5y4DRaC7WGHpu%2Ffiles%2FUS_Accidents_May19.csv?datasetVersionNumber=1)
+
+## Data Pre-Processsing
+- Run `python data-preprocessing.py`
+
+## Predictions
+- Run `python predicition.py`
+
