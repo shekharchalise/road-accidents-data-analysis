@@ -28,4 +28,5 @@ This project is a basic data analysis and prediction for our Master's Big Data T
 
 ## Predictions
 - Run `python predicition.py`
+- Result will be saved `results` directory
 
