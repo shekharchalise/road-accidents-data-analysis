@@ -27,7 +27,7 @@ clear_output_files()
 
 input_dataframe = pd.read_csv('preprocessed-file.csv')
 
-input_dataframe= input_dataframe[:5000] #keep 5000
+# input_dataframe= input_dataframe[:5000] #keep 5000
 Y = input_dataframe.Severity.values
 
 cols = input_dataframe.shape[1]
@@ -37,15 +37,15 @@ X.columns
 X_train, X_test,Y_train,Y_test = train_test_split(X, Y, test_size=0.33, random_state=99)
 
 # Support Vector Machines
-svc = SVC()
-svc.fit(X_train, Y_train)
-Y_pred = svc.predict(X_test)
-acc_svc = round(svc.score(X_test, Y_test) * 100, 2)
-sns.heatmap(confusion_matrix(Y_test, Y_pred),annot=True,fmt="d") 
-plt.savefig('results/confusion matrix/SVC.png')
-plt.clf()
-pd.DataFrame(classification_report(Y_test,Y_pred, output_dict=True)).transpose().to_csv('results/classifiction report/SVC.csv')
-print(acc_svc)
+# svc = SVC()
+# svc.fit(X_train, Y_train)
+# Y_pred = svc.predict(X_test)
+# acc_svc = round(svc.score(X_test, Y_test) * 100, 2)
+# sns.heatmap(confusion_matrix(Y_test, Y_pred),annot=True,fmt="d") 
+# plt.savefig('results/confusion matrix/SVC.png')
+# plt.clf()
+# pd.DataFrame(classification_report(Y_test,Y_pred, output_dict=True)).transpose().to_csv('results/classifiction report/SVC.csv')
+# print(acc_svc)
 
 #KNN
 knn = KNeighborsClassifier(n_neighbors = 3)
@@ -127,11 +127,11 @@ print(acc_random_forest)
 
 
 models = pd.DataFrame({
-    'Model': ['Support Vector Machines', 'KNN', 'Logistic Regression', 
+    'Model': ['KNN', 'Logistic Regression', 
               'Random Forest', 'Naive Bayes', 'Perceptron', 
               'Stochastic Gradient Decent', 
               'Decision Tree'],
-    'Score': [acc_svc, acc_knn, acc_log, 
+    'Score': [acc_knn, acc_log, 
               acc_random_forest, acc_gaussian, acc_perceptron, 
               acc_sgd, acc_decision_tree]})
 models.sort_values(by='Score', ascending=False).to_csv("results/prediction-score.csv")
