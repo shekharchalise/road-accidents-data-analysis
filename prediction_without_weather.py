@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC, LinearSVC
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.linear_model import Perceptron
@@ -134,15 +135,25 @@ plt.clf()
 pd.DataFrame(classification_report(Y_test,Y_pred, output_dict=True)).transpose().to_csv('results-without-weather/classifiction report/random_forest.csv')
 print(acc_random_forest)
 
+gradient_boosting = GradientBoostingClassifier(n_estimators=100, learning_rate=1.0, max_depth=1, random_state=6)
+gradient_boosting.fit(X_train, Y_train)
+Y_pred = gradient_boosting.predict(X_test)
+gradient_boosting.score(X_train, Y_train)
+acc_gradient_boosting = round(gradient_boosting.score(X_test, Y_test) * 100, 2)
+sns.heatmap(confusion_matrix(Y_test, Y_pred),annot=True,fmt="d")
+plt.savefig('results-without-weather/confusion matrix/gradient_boosting.png')
+plt.clf()
+pd.DataFrame(classification_report(Y_test,Y_pred, output_dict=True)).transpose().to_csv('results-without-weather/classifiction report/gradient_boosting.csv')
+print(acc_gradient_boosting)
 
 models = pd.DataFrame({
-    'Model': ['KNN', 'Logistic Regression', 
-              'Random Forest', 'Naive Bayes', 'Perceptron', 
-              'Stochastic Gradient Decent', 
-              'Decision Tree'],
-    'Score': [acc_knn, acc_log, 
-              acc_random_forest, acc_gaussian, acc_perceptron, 
-              acc_sgd, acc_decision_tree]})
+    'Model': ['KNN', 'Logistic Regression',
+              'Random Forest', 'Naive Bayes', 'Perceptron',
+              'Stochastic Gradient Decent',
+              'Decision Tree','Gradient Boosting'],
+    'Score': [acc_knn, acc_log,
+              acc_random_forest, acc_gaussian, acc_perceptron,
+              acc_sgd, acc_decision_tree, acc_gradient_boosting]})
 models.sort_values(by='Score', ascending=False).to_csv("results-without-weather/prediction-score.csv")
 
 
