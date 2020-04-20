@@ -141,7 +141,7 @@ print(acc_gradient_boosting)
 models = pd.DataFrame({
     'Model': ['KNN', 'Logistic Regression',
               'Random Forest', 'Naive Bayes', 'Perceptron',
-              'Stochastic Gradient Decent',
+              'Stochastic Gradient Descent',
               'Decision Tree','Gradient Boosting'],
     'Score': [acc_knn, acc_log,
               acc_random_forest, acc_gaussian, acc_perceptron,
