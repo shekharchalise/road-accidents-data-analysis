@@ -1,9 +1,9 @@
 ,Model,Score
-2,Random Forest,86.3
-6,Decision Tree,84.3
-7,Gradient Boosting,79.27
-0,KNN,76.48
-1,Logistic Regression,59.46
-4,Perceptron,58.55
-5,Stochastic Gradient Descent,58.55
-3,Naive Bayes,22.85
+2,Random Forest,85.43
+6,Decision Tree,82.31
+0,KNN,74.39
+7,Gradient Boosting,73.8
+1,Logistic Regression,65.13
+4,Perceptron,64.58
+5,Stochastic Gradient Decent,64.24
+3,Naive Bayes,54.34
