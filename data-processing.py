@@ -13,7 +13,7 @@ import seaborn as sns
 # %%
 df = pd.read_csv("US_Accidents_May19.csv")
 df2 = df[["Severity","Start_Time","End_Time","Start_Lat","Start_Lng","Zipcode","State","Temperature(F)","Wind_Chill(F)","Humidity(%)","Pressure(in)","Visibility(mi)", "Wind_Speed(mph)","Precipitation(in)","Weather_Condition","Amenity","Bump","Crossing","Give_Way","Junction","No_Exit","Railway","Roundabout","Station","Stop","Traffic_Calming","Traffic_Signal","Turning_Loop"]]
-df2 = df2.fillna(0)
+df2 = df2.fillna(-1)
 
 
 # %%
