@@ -55,3 +55,12 @@ This project is a basic data analysis and prediction for our Master's Big Data T
     ```
 - Result will be saved `results-without-weather` directory
 - Inside the directory you will be able to find classification report and confusion matrix images for each classifier and overall score comparision CSV file `prediction-score.csv` as before.
+
+## Driver Analysis
+
+### Crashes by State
+- It is recommend to run the Jupyter Notebook for best results.
+- The Jupyter Notebook will compile the pre-processed data and process the additional licensed_drivers.csv.
+- Several scripts will be run to normalize data and trim to what is used for the analysis.
+- The Notebook will both display and save the plots related to the driver analysis in the `figures` directory.
+    - The figures will be separated into years from 2016 to 2018.
